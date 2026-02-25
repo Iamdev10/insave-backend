@@ -8,18 +8,12 @@ import uuid
 import re
 import asyncio
 from pathlib import Path
-# Netscape HTTP Cookie File
-# https://curl.haxx.se/rfc/cookie_spec.html
-# This is a generated file! Do not edit.
 
-.instagram.com	TRUE	/	TRUE	1806622706	csrftoken	goyJGReoZklngBHbjZs_E7
-.instagram.com	TRUE	/	TRUE	1806622686	datr	3YefaZFgWBqWAdZaObsBFgZC
-.instagram.com	TRUE	/	TRUE	1803598686	ig_did	C21C030F-EB3C-4BED-B09D-8E6096304517
-.instagram.com	TRUE	/	TRUE	1772667501	wd	1710x947
-.instagram.com	TRUE	/	TRUE	1806622685	mid	aZ-H3QAEAAEYeMMA2V55eUN4Q9UE
-.instagram.com	TRUE	/	TRUE	1779838706	ds_user_id	21303695929
-.instagram.com	TRUE	/	TRUE	1803598693	sessionid	21303695929%3AbJrhHtSgIGXAyA%3A0%3AAYhbZHgVOJx_R_i7JRAIwAtcheTsyEZTIr388azPZA
-.instagram.com	TRUE	/	TRUE	0	rur	"HIL\05421303695929\0541803598705:01fe947e641389b4870d5f033d239203d6d96304301a71bd771bf596663c4b03b6b419b0"
+# Write cookies from environment variable to file
+cookies_content = os.getenv("COOKIES")
+if cookies_content:
+    with open("cookies.txt", "w") as f:
+        f.write(cookies_content)
 
 app = FastAPI(title="InSave API")
 
